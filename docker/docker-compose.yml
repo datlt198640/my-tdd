@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: app
+    build:
+      context: ../app
+      dockerfile: ../docker/dockerfiles/app
+      args:
+        - DEV=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../app:/app:delegated
+    tty: true
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
