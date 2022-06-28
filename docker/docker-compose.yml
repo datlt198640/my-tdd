@@ -12,6 +12,7 @@ services:
       - "8000:8000"
     volumes:
       - ../app:/app:delegated
+      - dev-static-data:/vol/web
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - DEBUG=${DEBUG}
@@ -47,3 +48,4 @@ services:
 
 volumes:
   dbdata:
+  dev-static-data:
